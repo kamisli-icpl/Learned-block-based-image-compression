@@ -23,21 +23,22 @@ Learned image compression research has achieved state-of-the-art compression per
     cd lbbic
     python3 -m venv .venv
     source .venv/bin/activate
-    git clone https://github.com/InterDigitalInc/CompressAI compressai
+    git clone git@github.com:InterDigitalInc/CompressAI.git compressai
     cd compressai
     pip install -U pip && pip install -e .
     ```
 3) Ensure that CompressAI works by evaluating a pre-trained model:  
     ```bash
-    python3 -m compressai.utils.eval_model pretrained /path/to/images/folder/ -a mbt2018 -q 1,8
+    python3 -m compressai.utils.eval_model pretrained /path/to/images/folder/ -a mbt2018 -q 1,8 --cuda
     ```
 4) Clone this repository in the project directory such that compressai and this project (LearnedCompressionV3) are in side-by-side directories:  
     ```bash
     cd ..
-    git clone https://github.com/kamisli-icpl/Learned-block-based-image-compression.git LearnedCompressionV3
+    git clone git@github.com:kamisli-icpl/Learned-block-based-image-compression.git LearnedCompressionV3
     ```
 5) Install the requirements for this project inside the virtual environment:  
     ```bash
+    cd LearnedCompressionV3
     pip install -r requirements.txt
     ```
 
