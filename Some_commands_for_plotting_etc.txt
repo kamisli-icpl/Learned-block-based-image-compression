@@ -1,0 +1,41 @@
+
+
+
+python3 -m plot --figsize 6 6 --axes 0.0 2.0 26.0 42.0 -f results_files/kodak/lbic8x8_mse.json results_files/kodak/bpg_444_x265_ycbcr.json results_files/kodak/compressai-mbt2018_mse_cuda.json results_files/kodak/compressai-bmshj2018-hyperprior_mse_cuda.json results_files/kodak/jpeg2000.json results_files/kodak/jpeg.json -t "PSNR (RGB) on Kodak" -o results_plot_kodak_psnr_cai.pdf
+
+python3 -m plot --figsize 6 6 --axes 0.0 2.0 26.0 42.0 -f results_files/kodak/lbic8x8_mse.json results_files/kodak/tfc-bpg444.json results_files/kodak/paper-mbt2018.json results_files/kodak/paper-bmshj2018-hyperprior.json results_files/kodak/tfc-jp2k-opj5.json results_files/kodak/tfc-jpeg420.json -t "PSNR (RGB) on Kodak" -o results_plot_kodak_psnr_tfc.pdf
+
+python3 -m plot --figsize 6 6 --axes 0.0 2.0 8.0 28.0 -f results_files/kodak/lbic8x8_mse.json results_files/kodak/tfc-bpg444.json results_files/kodak/paper-mbt2018.json results_files/kodak/paper-bmshj2018-hyperprior.json results_files/kodak/tfc-jp2k-opj5.json results_files/kodak/tfc-jpeg420.json -t "MS-SSIM (RGB) on Kodak" --metric "ms-ssim" -o results_plot_kodak_ms-ssim_tfc.pdf
+
+
+python3 -m plot --figsize 6 6 --axes 0.0 2.0 26.0 42.0 -f results_files/tecnick/lbic8x8_mse.json results_files/tecnick/tfc-bpg444.json results_files/tecnick/paper-mbt2018.json results_files/tecnick/paper-bmshj2018-hyperprior.json results_files/tecnick/tfc-jp2k-opj5.json results_files/tecnick/tfc-jpeg420.json -t "PSNR (RGB) on Tecnick" -o results_plot_tecnick_psnr.pdf
+
+
+python3 -m plot --figsize 6 6 --axes 0.0 2.0 26.0 42.0 -f results_files/kodak/lbic8x8_mse.json results_files/kodak/tfc-bpg444.json results_files/kodak/paper-mbt2018.json results_files/kodak/paper-bmshj2018-hyperprior.json results_files/kodak/tfc-jp2k-opj5.json results_files/kodak/tfc-jpeg420.json results_files/kodak/lbic16x16_mse.json results_files/kodak/lbic4x4_mse.json -t "PSNR (RGB) on Kodak" -o results_plot_kodak_psnr_tfc_BxB.pdf
+
+python3 -m plot --figsize 4 4 --axes 0.05 0.35 26.5 29.5 -f results_files/kodak/lbic8x8_mse.json results_files/kodak/tfc-bpg444.json results_files/kodak/paper-mbt2018.json results_files/kodak/paper-bmshj2018-hyperprior.json results_files/kodak/tfc-jp2k-opj5.json results_files/kodak/tfc-jpeg420.json results_files/kodak/lbic16x16_mse.json -t "PSNR (RGB) on Kodak" -o results_plot_kodak_psnr_tfc_16x16.pdf
+
+python3 -m plot --figsize 4 4 --axes 1.35 1.65 38.5 41.5 -f results_files/kodak/lbic8x8_mse.json results_files/kodak/tfc-bpg444.json results_files/kodak/paper-mbt2018.json results_files/kodak/paper-bmshj2018-hyperprior.json results_files/kodak/tfc-jp2k-opj5.json results_files/kodak/tfc-jpeg420.json results_files/kodak/lbic4x4_mse.json -t "PSNR (RGB) on Kodak" -o results_plot_kodak_psnr_tfc_4x4.pdf
+
+python3 -m plot --figsize 6 6 --axes 0.0 2.0 26.0 42.0 -f results_files/tecnick/lbic8x8_mse.json results_files/tecnick/tfc-bpg444.json results_files/tecnick/paper-mbt2018.json results_files/tecnick/paper-bmshj2018-hyperprior.json results_files/tecnick/tfc-jp2k-opj5.json results_files/tecnick/tfc-jpeg420.json results_files/tecnick/lbic16x16_mse.json results_files/tecnick/lbic4x4_mse.json -t "PSNR (RGB) on Tecnick" -o results_plot_tecnick_psnr_BxB.pdf
+
+
+
+
+
+python -m compressai.utils.eval_model checkpoint /path/to/image/dataset -a ARCH -p path/to/checkpoint-xxxxxxxx.pth.tar
+python3 -m compressai.utils.eval_model checkpoint /path/to/images/folder/ -a $ARCH -p $MODEL_CHECKPOINT...
+python3 -m compressai.utils.eval_model pretrained /path/to/images/folder/ -a $ARCH -q $QUALITY_LEVELS...
+
+python3 -m compressai.utils.eval_model pretrained /media/research/DL-Pytorch-1/CLIC/Kodak-images/ -a bmshj2018-hyperprior -q 1 --cuda --verbose
+
+
+
+python3 -m utils_cai.find_close jpeg         /media/research/DL-Pytorch-1/CLIC/Kodak-images/kodim19.png 0.249 --metric bpp --save
+python3 -m utils_cai.find_close jpeg2000     /media/research/DL-Pytorch-1/CLIC/Kodak-images/kodim19.png 0.249 --metric bpp --save
+python3 -m utils_cai.find_close webp         /media/research/DL-Pytorch-1/CLIC/Kodak-images/kodim19.png 0.249 --metric bpp --save
+python3 -m utils_cai.find_close bpg -e jctvc /media/research/DL-Pytorch-1/CLIC/Kodak-images/kodim19.png 0.249 --metric bpp --save
+python3 -m utils_cai.find_close cai --cai_arch mbt2018 --cai_arch_metric mse              /media/research/DL-Pytorch-1/CLIC/Kodak-images/kodim19.png 0.249 --metric bpp --save
+python3 -m utils_cai.find_close cai --cai_arch bmshj2018-hyperprior --cai_arch_metric mse /media/research/DL-Pytorch-1/CLIC/Kodak-images/kodim19.png 0.249 --metric bpp --save
+
+

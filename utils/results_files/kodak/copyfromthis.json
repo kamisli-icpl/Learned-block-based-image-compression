@@ -1,0 +1,32 @@
+{
+  "name": "BPG (444)",
+  "description": "Inference. from tensorflow/compression",
+  "results": {
+    "psnr": [
+      27.19,
+      29.08,
+      30.85,
+      32.81,
+      34.84,
+      36.84,
+      38.76,
+      40.82
+    ],
+    "ms-ssim": [
+    ],
+    "bpp": [
+      0.117,
+      0.197,
+      0.307,
+      0.468,
+      0.660,
+      0.915,
+      1.242,
+      1.629
+    ],
+    "encoding_time": [
+    ],
+    "decoding_time": [
+    ]
+  }
+}

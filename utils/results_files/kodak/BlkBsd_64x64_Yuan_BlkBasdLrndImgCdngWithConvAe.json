@@ -1,0 +1,26 @@
+{
+  "name": "Yuan et al. [24] (BS=64x64)",
+  "description": "Inference",
+  "results": {
+    "psnr": [
+      32.86,
+      35.43,
+      37.50,
+      38.73
+    ],
+    "ms-ssim": [
+    ],
+    "ms-ssimdb": [
+    ],    
+    "bpp": [
+      0.414,
+      0.690,
+      0.976,
+      1.183
+    ],
+    "encoding_time": [
+    ],
+    "decoding_time": [
+    ]
+  }
+}

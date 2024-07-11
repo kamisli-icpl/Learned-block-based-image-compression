@@ -1,0 +1,60 @@
+
+
+fatih@bm6ae:/media/research/DL-Pytorch-1/LearnedCompressionV3$ python3 -m utils_cai.find_close jpeg2000 /media/research/DL-Pytorch-1/CLIC/Kodak-images/kodim19.png 0.249 --metric bpp --save
+target bpp: 0.2490 | value: 0.2556 | q: 47
+bpp: 0.2489
+encoding_time: 0.1804
+decoding_time: 0.1288
+psnr: 28.9096
+
+
+fatih@bm6ae:/media/research/DL-Pytorch-1/LearnedCompressionV3$ python3 -m utils_cai.find_close jpeg /media/research/DL-Pytorch-1/CLIC/Kodak-images/kodim19.png 0.249 --metric bpp --save
+target bpp: 0.2490 | value: 0.2545 | q: 71
+bpp: 0.2545
+encoding_time: 0.0013
+decoding_time: 0.0011
+psnr: 25.5096
+
+fatih@bm6ae:/media/research/DL-Pytorch-1/LearnedCompressionV3$ python3 -m utils_cai.find_close webp /media/research/DL-Pytorch-1/CLIC/Kodak-images/kodim19.png 0.249 --metric bpp --save
+target bpp: 0.2490 | value: 0.2482 | q: 10
+bpp: 0.2482
+encoding_time: 0.0349
+decoding_time: 0.0032
+psnr: 28.8721
+
+
+
+fatih@bm6ae:/media/research/DL-Pytorch-1/LearnedCompressionV3$ python3 -m utils_cai.find_close bpg -e "jctvc" /media/research/DL-Pytorch-1/CLIC/Kodak-images/kodim19.png 0.249 --metric bpp --save
+target bpp: 0.2490 | value: 0.2733 | q: 35
+bpp: 0.2339
+encoding_time: 3.2735
+decoding_time: 0.1274
+psnr: 30.9641
+
+
+fatih@bm6ae:/media/research/DL-Pytorch-1/LearnedCompressionV3$ python3 -m utils_cai.find_close cai --cai_arch mbt2018 --cai_arch_metric mse /media/research/DL-Pytorch-1/CLIC/Kodak-images/kodim19.png 0.249 --metric bpp --save
+/home/fatih/.local/lib/python3.8/site-packages/compressai/models/priors.py:484: UserWarning: Inference on GPU is not recommended for the autoregressive models (the entropy coder is run sequentially on CPU).
+  warnings.warn(
+/home/fatih/.local/lib/python3.8/site-packages/compressai/models/priors.py:568: UserWarning: Inference on GPU is not recommended for the autoregressive models (the entropy coder is run sequentially on CPU).
+  warnings.warn(
+target bpp: 0.2490 | value: 0.2395 | q: 3
+bpp: 0.2395
+encoding_time: 4.4979
+decoding_time: 8.7518
+psnr: 31.2036
+
+fatih@bm6ae:/media/research/DL-Pytorch-1/LearnedCompressionV3$ python3 -m utils_cai.find_close cai --cai_arch bmshj2018-hyperprior --cai_arch_metric mse /media/research/DL-Pytorch-1/CLIC/Kodak-images/kodim19.png 0.249 --metric bpp --save
+Downloading: "https://compressai.s3.amazonaws.com/models/v1/bmshj2018-hyperprior-4-de1b779c.pth.tar" to /home/fatih/.cache/torch/hub/checkpoints/bmshj2018-hyperprior-4-de1b779c.pth.tar
+100.0%
+target bpp: 0.2490 | value: 0.4233 | q: 4Downloading: "https://compressai.s3.amazonaws.com/models/v1/bmshj2018-hyperprior-2-93677231.pth.tar" to /home/fatih/.cache/torch/hub/checkpoints/bmshj2018-hyperprior-2-93677231.pth.tar
+100.0%
+target bpp: 0.2490 | value: 0.1740 | q: 2Downloading: "https://compressai.s3.amazonaws.com/models/v1/bmshj2018-hyperprior-3-6d87be32.pth.tar" to /home/fatih/.cache/torch/hub/checkpoints/bmshj2018-hyperprior-3-6d87be32.pth.tar
+100.0%
+target bpp: 0.2490 | value: 0.2738 | q: 3
+bpp: 0.2738
+encoding_time: 0.0408
+decoding_time: 0.0285
+psnr: 30.9142
+ 
+ 
+Image 15 --> RDLoss:0.615 MSE/PSNR:0.00084/30.75 Rate:0.249 MS-SSIM/dB:0.9506/13.06 Enc/DecTime:28.2/37.5 Enc-Dec.Mad/Max/Min:0.00/0.00/0.00 in /media/research/DL-Pytorch-1/LearnedCompressionV3/agents/blkbsdimgcomp_agent.py:609

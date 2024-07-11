@@ -1,0 +1,18 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Model weights and checkpoints
+*.pth
+*.pth.tar
+
+# PNG files
+*.png
+
+# ignore all config json files except ...
+/config/*.json
+!/config/blkbsdimgcomp_B8_lowrate.json
+!/config/blkbsdimgcomp_B8_highrate.json
+!/config/blkbsdimgcomp_B4_highrate.json
+!/config/blkbsdimgcomp_B16_lowrate.json

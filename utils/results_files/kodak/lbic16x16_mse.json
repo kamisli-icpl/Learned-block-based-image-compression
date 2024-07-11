@@ -1,0 +1,26 @@
+{
+  "name": "Our method (BS=16x16)",
+  "description": "Inference",
+  "results": {
+    "psnr": [
+      27.46,
+      29.06,
+      30.80
+    ],
+    "ms-ssim": [
+      0.90475225
+    ],
+    "ms-ssimdb": [
+      10.36
+    ],    
+    "bpp": [
+      0.120,
+      0.204,
+      0.331
+    ],
+    "encoding_time": [
+    ],
+    "decoding_time": [
+    ]
+  }
+}

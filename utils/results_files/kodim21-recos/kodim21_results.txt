@@ -1,0 +1,42 @@
+ 
+fatih@bm6ae:/media/research/DL-Pytorch-1/LearnedCompressionV3$ python3 -m utils_cai.find_close jpeg         /media/research/DL-Pytorch-1/CLIC/Kodak-images/kodim21.png 0.223 --metric bpp --save
+target bpp: 0.2230 | value: 0.2041 | q: 41
+bpp: 0.2265
+encoding_time: 0.0012
+decoding_time: 0.0010
+psnr: 23.4196
+
+fatih@bm6ae:/media/research/DL-Pytorch-1/LearnedCompressionV3$ python3 -m utils_cai.find_close jpeg2000         /media/research/DL-Pytorch-1/CLIC/Kodak-images/kodim21.png 0.223 --metric bpp --save
+target bpp: 0.2230 | value: 0.2283 | q: 52
+bpp: 0.2228
+encoding_time: 0.1803
+decoding_time: 0.1352
+psnr: 26.8429
+
+fatih@bm6ae:/media/research/DL-Pytorch-1/LearnedCompressionV3$ python3 -m utils_cai.find_close bpg -e jctvc         /media/research/DL-Pytorch-1/CLIC/Kodak-images/kodim21.png 0.223 --metric bpp --save
+target bpp: 0.2230 | value: 0.2215 | q: 39
+bpp: 0.2215
+encoding_time: 3.1889
+decoding_time: 0.0936
+psnr: 28.7151
+
+fatih@bm6ae:/media/research/DL-Pytorch-1/LearnedCompressionV3$ python3 -m utils_cai.find_close cai --cai_arch mbt2018 --cai_arch_metric mse    /media/research/DL-Pytorch-1/CLIC/Kodak-images/kodim21.png 0.223 --metric bpp --save
+/home/fatih/.local/lib/python3.8/site-packages/compressai/models/priors.py:484: UserWarning: Inference on GPU is not recommended for the autoregressive models (the entropy coder is run sequentially on CPU).
+  warnings.warn(
+/home/fatih/.local/lib/python3.8/site-packages/compressai/models/priors.py:568: UserWarning: Inference on GPU is not recommended for the autoregressive models (the entropy coder is run sequentially on CPU).
+  warnings.warn(
+target bpp: 0.2230 | value: 0.3180 | q: 3
+bpp: 0.2076
+encoding_time: 4.6122
+decoding_time: 8.8568
+psnr: 28.9567
+
+fatih@bm6ae:/media/research/DL-Pytorch-1/LearnedCompressionV3$ python3 -m utils_cai.find_close cai --cai_arch bmshj2018-hyperprior --cai_arch_metric mse    /media/research/DL-Pytorch-1/CLIC/Kodak-images/kodim21.png 0.223 --metric bpp --save
+target bpp: 0.2230 | value: 0.1402 | q: 1
+bpp: 0.2241
+encoding_time: 0.0410
+decoding_time: 0.0283
+psnr: 28.5928
+
+
+Image 13 --> RDLoss:0.538 MSE/PSNR:0.00138/28.59 Rate:0.223 MS-SSIM/dB:0.9516/13.15 Enc/DecTime:32.4/0.0 Enc-Dec.Mad/Max/Min:-255.00/-255.00/-255.00 (kodim21.png)

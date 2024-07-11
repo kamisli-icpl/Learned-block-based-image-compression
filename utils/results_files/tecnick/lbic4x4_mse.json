@@ -1,0 +1,18 @@
+{
+  "name": "Our method (BS=4x4)",
+  "description": "Inference",
+  "results": {
+    "psnr": [
+      40.67
+    ],
+    "ms-ssim": [
+    ],
+    "bpp": [
+      1.181
+    ],
+    "encoding_time": [
+    ],
+    "decoding_time": [
+    ]
+  }
+}
