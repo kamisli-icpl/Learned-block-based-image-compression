@@ -12,3 +12,10 @@ __pycache__/
 
 # zip files
 *.zip
+
+# ignore all config json files except ...
+/configs/*.json
+!/configs/blkbsdimgcomp_B8_lowrate.json
+!/configs/blkbsdimgcomp_B8_highrate.json
+!/configs/blkbsdimgcomp_B4_highrate.json
+!/configs/blkbsdimgcomp_B16_lowrate.json

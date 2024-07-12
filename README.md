@@ -14,7 +14,7 @@ Learned image compression research has achieved state-of-the-art compression per
 
 ## Installation
 0) Requirements are the same as for CompressAI (https://github.com/InterDigitalInc/CompressAI)
-1) Create a project directory in your machine:  
+1) Create a project directory on your machine:  
     ```bash
     mkdir lbbic
     ```
@@ -44,13 +44,23 @@ Learned image compression research has achieved state-of-the-art compression per
 
 
 ## Compression/decompression (inference) with the models in the paper
-1) .
+1) Download the pre-trained model weights for the results in the paper from the link below  
+https://drive.google.com/file/d/1KOn1oN0KlpFcXVBLDee_GLHg6fFOl_51/view?usp=sharing  
+and copy the downloaded `pth.tar` files into the correspondig `checkpoints` folders under the experiments folder in your project directory, such as  
+`lbbic/LearnedCompressionV3/experiments/blkbsdimgcomp_B8_KS3111_N768M96_v9/exp_117.045/checkpoints/` 
+2) To run compression/decompression with the 8x8 block low-rate model for the lowest $\lambda$, run:
+    ```bash
+    python3 main.py configs/blkbsdimgcomp_B8_lowrate.json
+    ```
+    Note, that you should first update the dataset paths at the bottom of the json file. During compression/decompression, the png files in the valid_data path will be compressed/decompressed, however, the other paths still need to point to valid paths. 
+3) To run compression/decompression with the other models and/or $\lambda$ values, pick the corresponding json file under the `configs` directory, update the `lambda_` parameter (if desired) and the dataset paths in the json file and run the above command with the json file. If you want to update the lambda_ parameter, you must choose a value that corresponds to the value in a `exp_` folder name under the `experiments/"multi_exp_name"` directory. 
+
 
 ## Training
-1)
-
-## Compression/Decompression
-1) 
-    
+1) To train a model, pick one of the provided json files and make a copy. In the new json file, set `mode="train_all_acl"` and update many other parameters, such as  `multi_exp_name, mode, block_size, N, M, lambda_, acl_itr0_rdloss_threshold` and dataset paths to appropriate values. 
+2) Run:  
+    ```bash
+    python3 main.py configs/new-json-file.json
+    ```
 
 
