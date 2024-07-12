@@ -35,7 +35,7 @@
   "test_every": 1,
   "checkpoint_file": "checkpoint.pth.tar",
 
-  "modelbest_file_load": "model_best_acl_7rr.pth.tar",
+  "modelbest_file_load": "model_best_acl_Xrr.pth.tar",
   "acl_bool": true,
   "acl_itr": 0,
   "cnt_no_improvement_valid_thresholds": [8, 8, 7, 6, 5, 5],

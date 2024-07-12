@@ -10,9 +10,5 @@ __pycache__/
 # PNG files
 *.png
 
-# ignore all config json files except ...
-/config/*.json
-!/config/blkbsdimgcomp_B8_lowrate.json
-!/config/blkbsdimgcomp_B8_highrate.json
-!/config/blkbsdimgcomp_B4_highrate.json
-!/config/blkbsdimgcomp_B16_lowrate.json
+# zip files
+*.zip
