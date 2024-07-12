@@ -92,33 +92,36 @@ class BaseAgent:
             self.logger.info("Loading checkpoint '{}'".format(filename))
             # checkpoint = torch.load(filename)
             checkpoint = torch.load(filename, map_location=self.device)
-            self.current_epoch = checkpoint['epoch']
-            self.current_iteration = checkpoint['iteration']
-            self.best_valid_loss = checkpoint['best_valid_loss']  # prev acl iter may have better valid loss, so better valid loss may never be possible in this acl iter !?
-            self.best_validrr_loss = checkpoint['best_validrr_loss']
-            self.prev_aclitr_best_valid_loss = checkpoint['prev_aclitr_best_valid_loss']
-            self.prev_aclitr_best_validrr_loss = checkpoint['prev_aclitr_best_validrr_loss']
-            self.model0.load_state_dict(checkpoint['state_dict0'])
-            # self.model1.load_state_dict(checkpoint['state_dict'])
-            # self.model2.load_state_dict(checkpoint['state_dict'])
-            self.optimizer.load_state_dict(checkpoint['optimizer'])
-            self.scheduler.load_state_dict(checkpoint['scheduler'])
-            self.train_logger0.load_state_dict(checkpoint['train_logger0'])
-            self.train_logger1.load_state_dict(checkpoint['train_logger1'])
-            self.trnit_logger0.load_state_dict(checkpoint['trnit_logger0'])
-            self.trnit_logger1.load_state_dict(checkpoint['trnit_logger1'])
-            self.valid_logger0.load_state_dict(checkpoint['valid_logger0'])
-            self.rcrec_logger.load_state_dict(checkpoint['rcrec_logger'])
-            self.amp_scaler.load_state_dict(checkpoint['amp_scaler'])
-            self.logger.info("Checkpoint loaded successfully from '{}' at (epoch {}) at (iteration {})"
-                            .format(self.config.checkpoint_dir, checkpoint['epoch'], checkpoint['iteration']))
-            # self.model.to(self.device)   # no need here ?
-            # Fix the optimizer cuda error
-            if self.cuda and self.config.mode != 'eval_model':  # this if statement is added by fatih later but not tested
-                for state in self.optimizer.state.values():
-                    for k, v in state.items():
-                        if isinstance(v, torch.Tensor):
-                            state[k] = v.cuda()
+            if len(checkpoint) == 1: # contains only model weights
+                self.model0.load_state_dict(checkpoint['state_dict0'])
+            else:
+                self.current_epoch = checkpoint['epoch']
+                self.current_iteration = checkpoint['iteration']
+                self.best_valid_loss = checkpoint['best_valid_loss']  # prev acl iter may have better valid loss, so better valid loss may never be possible in this acl iter !?
+                self.best_validrr_loss = checkpoint['best_validrr_loss']
+                self.prev_aclitr_best_valid_loss = checkpoint['prev_aclitr_best_valid_loss']
+                self.prev_aclitr_best_validrr_loss = checkpoint['prev_aclitr_best_validrr_loss']
+                self.model0.load_state_dict(checkpoint['state_dict0'])
+                # self.model1.load_state_dict(checkpoint['state_dict'])
+                # self.model2.load_state_dict(checkpoint['state_dict'])
+                self.optimizer.load_state_dict(checkpoint['optimizer'])
+                self.scheduler.load_state_dict(checkpoint['scheduler'])
+                self.train_logger0.load_state_dict(checkpoint['train_logger0'])
+                self.train_logger1.load_state_dict(checkpoint['train_logger1'])
+                self.trnit_logger0.load_state_dict(checkpoint['trnit_logger0'])
+                self.trnit_logger1.load_state_dict(checkpoint['trnit_logger1'])
+                self.valid_logger0.load_state_dict(checkpoint['valid_logger0'])
+                self.rcrec_logger.load_state_dict(checkpoint['rcrec_logger'])
+                self.amp_scaler.load_state_dict(checkpoint['amp_scaler'])
+                self.logger.info("Checkpoint loaded successfully from '{}' at (epoch {}) at (iteration {})"
+                                .format(self.config.checkpoint_dir, checkpoint['epoch'], checkpoint['iteration']))
+                # self.model.to(self.device)   # no need here ?
+                # Fix the optimizer cuda error
+                if self.cuda and self.config.mode != 'eval_model':  # this if statement is added by fatih later but not tested
+                    for state in self.optimizer.state.values():
+                        for k, v in state.items():
+                            if isinstance(v, torch.Tensor):
+                                state[k] = v.cuda()
 
         except OSError as e:
             self.logger.info("!!! No checkpoint exists from '{}'. Continuing with available parameters..."
