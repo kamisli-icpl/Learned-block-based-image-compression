@@ -1163,3 +1163,11 @@
 [INFO] - 2024-07-01 16:41:14,872 - Loss - :   Valid Epoch:  76  RDLoss: 2.616114 MSE/PSNR: 0.000084/40.74 Rate: 1.629 (16:41:14) in /home/fatih/Projects/lbbic/LearnedCompressionV3/loggers/rate.py:138
 [INFO] - 2024-07-01 16:41:14,872 - Agent - : avg_psnr = 40.82  avg_msssim = 0.99491125 avg_msssimdb = 23.22 in /home/fatih/Projects/lbbic/LearnedCompressionV3/agents/blkbsdimgcomp_agent.py:628
 [INFO] - 2024-07-01 16:41:14,874 - Agent - : Please wait while finalizing the operation.. Thank you in /home/fatih/Projects/lbbic/LearnedCompressionV3/agents/base.py:234
+[INFO] - 2024-08-23 14:59:15,448 - root - : The pipeline of the project will begin now. in /home/fatih/Projects/lbbic/LearnedCompressionV3/utils/config.py:101
+[INFO] - 2024-08-23 14:59:16,098 - Agent - : Loading checkpoint 'experiments/blkbsdimgcomp_B8_KS3311_N1152M128_v9/exp_11704.5/checkpoints/model_best_acl_Xrr.pth.tar' in /home/fatih/Projects/lbbic/LearnedCompressionV3/agents/base.py:92
+[INFO] - 2024-08-23 16:29:21,809 - root - : The pipeline of the project will begin now. in /home/fatih/Projects/lbbic/LearnedCompressionV3/utils/config.py:101
+[INFO] - 2024-08-23 16:29:22,426 - Agent - : Loading checkpoint 'experiments/blkbsdimgcomp_B8_KS3311_N1152M128_v9/exp_11704.5/checkpoints/model_best_acl_Xrr.pth.tar' in /home/fatih/Projects/lbbic/LearnedCompressionV3/agents/base.py:92
+[INFO] - 2024-08-24 10:24:19,676 - root - : The pipeline of the project will begin now. in /home/fatih/Projects/lbbic/LearnedCompressionV3/utils/config.py:101
+[INFO] - 2024-08-24 10:24:20,236 - Agent - : Loading checkpoint 'experiments/blkbsdimgcomp_B8_KS3311_N1152M128_v9/exp_11704.5/checkpoints/model_best_acl_Xrr.pth.tar' in /home/fatih/Projects/lbbic/LearnedCompressionV3/agents/base.py:92
+[INFO] - 2024-08-24 10:28:31,040 - Loss - :   Valid Epoch:   1  RDLoss: 2.677226 MSE/PSNR: 0.000085/40.72 Rate: 1.685 (10:28:31) in /home/fatih/Projects/lbbic/LearnedCompressionV3/loggers/rate.py:138
+[INFO] - 2024-08-24 10:28:31,041 - Agent - : Please wait while finalizing the operation.. Thank you in /home/fatih/Projects/lbbic/LearnedCompressionV3/agents/base.py:239

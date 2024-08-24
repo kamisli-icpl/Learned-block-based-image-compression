@@ -1488,3 +1488,7 @@
 [INFO] - 2024-07-01 13:37:52,543 - Loss - :   Valid Epoch: 110  RDLoss: 0.358533 MSE/PSNR: 0.002062/26.86 Rate: 0.117 (13:37:52) in /home/fatih/Projects/lbbic/LearnedCompressionV3/loggers/rate.py:138
 [INFO] - 2024-07-01 13:37:52,543 - Agent - : avg_psnr = 27.20  avg_msssim = 0.90366656 avg_msssimdb = 10.30 in /home/fatih/Projects/lbbic/LearnedCompressionV3/agents/blkbsdimgcomp_agent.py:628
 [INFO] - 2024-07-01 13:37:52,543 - Agent - : Please wait while finalizing the operation.. Thank you in /home/fatih/Projects/lbbic/LearnedCompressionV3/agents/base.py:234
+[INFO] - 2024-08-24 10:39:01,262 - root - : The pipeline of the project will begin now. in /home/fatih/Projects/lbbic/LearnedCompressionV3/utils/config.py:101
+[INFO] - 2024-08-24 10:39:01,470 - Agent - : Loading checkpoint 'experiments/blkbsdimgcomp_B8_KS3111_N768M96_v9/exp_117.045/checkpoints/model_best_acl_Xrr.pth.tar' in /home/fatih/Projects/lbbic/LearnedCompressionV3/agents/base.py:92
+[INFO] - 2024-08-24 10:40:28,309 - Loss - :   Valid Epoch:   1  RDLoss: 0.367969 MSE/PSNR: 0.002061/26.86 Rate: 0.127 (10:40:28) in /home/fatih/Projects/lbbic/LearnedCompressionV3/loggers/rate.py:138
+[INFO] - 2024-08-24 10:40:28,310 - Agent - : Please wait while finalizing the operation.. Thank you in /home/fatih/Projects/lbbic/LearnedCompressionV3/agents/base.py:239

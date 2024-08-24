@@ -403,6 +403,10 @@ class BlockBasedImgCompLossyAgent(BaseAgent):
     @torch.no_grad()
     def validate_recu_reco(self):
         self.model0.eval()   # !!! Caution : Which model to use in recursive reconstruction ? Also changemodel number below !!!
+        save_blkbsd_rdcosts_to_disk = False  # make this False if you don't know what it does
+        if save_blkbsd_rdcosts_to_disk:
+            list_rdcost_tensors_per_img = []
+            list_images = []
         with torch.no_grad():
             mse_losses = []
             for batch_idx, (x, zhat) in enumerate(self.data_loader.valid_loader):
@@ -453,6 +457,22 @@ class BlockBasedImgCompLossyAgent(BaseAgent):
                 if False:
                     display_image_in_actual_size(x, self.block_size, self.device) # original img
                     display_image_in_actual_size(xhat, self.block_size, self.device) # reconstructed img
+                if save_blkbsd_rdcosts_to_disk:
+                    bits_per_blk = torch.zeros(bt, self_infos.shape[1], hg, wd, device=x.device)
+                    for v in range(0, hg//TS):
+                        for h in range(0, wd//TS):
+                            bits_per_blk[:, :, v*TS:v*TS+TS, h*TS:h*TS+TS] = self_infos[v*(wd//TS)+h, :, :, :]
+                    mseloss = nn.MSELoss(reduction='none')
+                    mse_x_xhat = mseloss(x, xhat)
+                    rdcost_per_blk = bits_per_blk.sum(dim=1) + self.config.lambda_ * mse_x_xhat.sum(dim=1)
+                    list_rdcost_tensors_per_img.append(rdcost_per_blk)
+                    x01_HW = arrange_channel_dim_to_block_pixels(x +0.5, self.block_size, dev=x.device)
+                    list_images.append(x01_HW)
+            if save_blkbsd_rdcosts_to_disk:
+                filename1 = f"list_rdcost_tensors_per_blk_B{self.block_size}_{self.config.lambda_}.pt"
+                filename2 = f"list_orig_images_B{self.block_size}_{self.config.lambda_}.pt"
+                torch.save(list_rdcost_tensors_per_img, self.config.out_dir + filename1)
+                torch.save(list_images, self.config.out_dir + filename2)
             valid_rd_loss, valid_mse_loss, valid_rate_loss, _ = self.rcrec_logger.display(lr=0.0, typ='va')
             ##self.logger.info(f'avg_psnr = {10.0 * torch.log10(1.0 / torch.tensor(mse_losses)).mean().item():.2f}')
             # self.scheduler.step(valid_rd_loss)
