@@ -4,12 +4,15 @@
 Learned image compression research has achieved state-of-the-art compression performance with auto-encoder based neural network architectures, where the image is mapped via convolutional neural networks (CNN) into a latent representation that is quantized and processed again with CNN to obtain the reconstructed image. CNN operate on entire input images. On the other hand, traditional state-of-the-art image and video compression methods process images with a block-by-block processing approach for various reasons. Very recently, work on learned image compression with block based approaches have also appeared, which use the auto-encoder architecture on large blocks of the input image and introduce additional neural networks that perform intra/spatial prediction and deblocking/post-processing functions. This paper explores and proposes an alternative learned block-based image compression approach in which neither an explicit intra prediction neural network nor an explicit deblocking neural network is used. A single auto-encoder neural network with block-level masked convolutions is used and the block size is much smaller (8x8). By using block-level masked convolutions, each block is processed using reconstructed neighboring left and upper blocks both at the encoder and decoder. Hence, the mutual information of adjacent blocks is exploited during compression and each block is reconstructed using neighboring blocks, resolving the need for explicit intra prediction and deblocking neural networks. Since the explored system is a closed-loop system, a special optimization procedure, the asymptotic closed-loop design, is used with standard stochastic gradient descent based training. The experimental results indicate competitive image compression performance.
 
 ## Citation
-    @article{kamisli2022end,
-        title={End-to-End Learned Block-Based Image Compression with Block-Level Masked Convolutions and Asymptotic Closed Loop Training},
-        author={Kamisli, Fatih},
-        journal={arXiv preprint arXiv:2203.11686},
-        year={2022}
+    @article{kamisli2024end,
+      title={End-to-end learned block-based image compression with block-level masked convolutions and asymptotic closed-loop training},
+      author={Kamisli, Fatih},
+      journal={Multimedia Tools and Applications},
+      pages={1--23},
+      year={2024},
+      publisher={Springer}
     }
+
 
 
 ## Installation
