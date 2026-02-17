@@ -47,8 +47,8 @@ Learned image compression research has achieved state-of-the-art compression per
 
 
 ## Compression/decompression (inference) with the models in the paper
-1) Download the pre-trained model weights for the results in the paper from the link below  
-https://drive.google.com/file/d/1KOn1oN0KlpFcXVBLDee_GLHg6fFOl_51/view?usp=sharing  
+1) Download the pre-trained model weights for the results in the paper from Releases v0.1  
+(https://github.com/kamisli-icpl/Learned-block-based-image-compression/releases/tag/v0.1)
 and copy the downloaded `pth.tar` files into the correspondig `checkpoints` folders under the experiments folder in your project directory, such as  
 `lbbic/LearnedCompressionV3/experiments/blkbsdimgcomp_B8_KS3111_N768M96_v9/exp_117.045/checkpoints/` 
 2) To run compression/decompression with the 8x8 block low-rate model for the lowest $\lambda$, run:
